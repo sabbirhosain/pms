@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
 import { FaRegEye, FaRegEyeSlash } from "../../Data/Icon.jsx"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Ripple, Input, initTWE, } from "tw-elements";
+
 const Register = () => {
+  useEffect(() => { initTWE({ Ripple, Input }) }, []);
   // password show
   const [showPassword, setShowPassword] = useState(false);
   const passwordShowToggle = () => {
@@ -11,7 +14,6 @@ const Register = () => {
 
   const [firstName, setFirstName] = useState("")
   const [userName, setUserName] = useState("")
-  console.log(firstName);
 
   const registerFrom = (event) => {
     event.preventDefault()
@@ -33,98 +35,148 @@ const Register = () => {
           <form onSubmit={registerFrom}>
             <div className="grid grid-cols-2 gap-4">
               {/* <!--First name input--> */}
-              <TEInput
-                type="text"
-                label="First name"
-                className="mb-6"
-                onChange={(event) => setFirstName(event.target.value)}
-                required
-              ></TEInput>
 
-              {/* <!--Last name input--> */}
-              <TEInput
-                type="text"
-                label="Last name"
-                className="mb-6"
-                required
-              ></TEInput>
+              <div className="relative mb-6" data-twe-input-wrapper-init>
+                <input type="text"
+                  id="firstName"
+                  aria-describedby="firstName"
+                  placeholder="First name"
+                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                <label
+                  htmlFor="firstName"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">First name
+                </label>
+              </div>
+
+              {/* <!--last name input--> */}
+              <div className="relative mb-6" data-twe-input-wrapper-init>
+                <input
+                  type="text"
+                  id="lastName"
+                  aria-describedby="lastName"
+                  placeholder="Last name"
+                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                <label
+                  htmlFor="lastName"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                  Last name
+                </label>
+              </div>
+
+
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               {/* <!--User name input--> */}
-              <TEInput
-                type="text"
-                label="User name"
-                className="mb-6"
-                onChange={(event) => setUserName(event.target.value)}
-                required
-              ></TEInput>
+              <div className="relative mb-6" data-twe-input-wrapper-init>
+                <input type="text"
+                  id="userName"
+                  aria-describedby="userName"
+                  placeholder="First name"
+                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                <label
+                  htmlFor="userName"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                  User name
+                </label>
+              </div>
 
               {/* <!--Number name input--> */}
-              <TEInput
-                type="number"
-                label="Phone Number"
-                className="mb-6"
-                required
-              ></TEInput>
+              <div className="relative mb-6" data-twe-input-wrapper-init>
+                <input type="text"
+                  id="phoneNumber"
+                  aria-describedby="phoneNumber"
+                  placeholder="First name"
+                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                <label
+                  htmlFor="phoneNumber"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                  Phone Number
+                </label>
+              </div>
             </div>
 
             {/* <!--Email input--> */}
-            <TEInput
-              type="email"
-              label="Email address"
-              className="mb-6"
-              required
-            ></TEInput>
+            <div className="relative mb-6" data-twe-input-wrapper-init>
+              <input type="email"
+                id="emailAddress"
+                aria-describedby="emailAddress"
+                placeholder="First name"
+                className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+              <label
+                htmlFor="emailAddress"
+                className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                Email Address
+              </label>
+            </div>
 
             <div className="grid grid-cols-2 gap-4">
               {/* <!--password input--> */}
-              <TEInput
-                type={showPassword ? "text" : "password"}
-                label="Password"
-                className="mb-6"
-                required
-              ></TEInput>
+              <div className="relative mb-6" data-twe-input-wrapper-init>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  aria-describedby="password"
+                  placeholder="First name"
+                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                <label
+                  htmlFor="password"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                  Password
+                </label>
+              </div>
 
               {/* <!--confirm oassword input--> */}
               <div className="relative">
-                <TEInput
-                  type={showPassword ? "text" : "password"}
-                  label="Confirm Password"
-                  className="mb-6"
-                  required
-                ></TEInput>
+                <div className="relative mb-6" data-twe-input-wrapper-init>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    aria-describedby="confirmPassword"
+                    placeholder="First name"
+                    className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0" />
+
+                  <label
+                    htmlFor="confirmPassword"
+                    className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-300 dark:peer-focus:text-primary">
+                    Confirm Password
+                  </label>
+                </div>
                 <button type="button" onClick={passwordShowToggle} className="absolute top-[10px] right-2 z-50 cursor-pointer">{showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</button>
               </div>
             </div>
 
-            {/* <!--Subscribe newsletter checkbox--> */}
-            <div className="mb-6 flex min-h-[1.5rem] items-center justify-start pl-[1.5rem]">
+            {/* <!--i aggree checkbox--> */}
+            <div className="mb-6 block min-h-[1.5rem] ps-[1.5rem]">
               <input
-                className="relative float-left -ml-[1.5rem] mr-[6px] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary"
+                className="relative float-left -ms-[1.5rem] me-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-secondary-500 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ms-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ms-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent rtl:float-right dark:border-neutral-400 dark:checked:border-primary dark:checked:bg-primary"
                 type="checkbox"
                 value=""
-                id="exampleCheck25"
-                required
-              />
+                id="checkboxDefault" />
               <label
-                className="inline-block pl-[0.15rem] hover:cursor-pointer"
-                htmlFor="exampleCheck25"
-              >
+                className="inline-block ps-[0.15rem] hover:cursor-pointer"
+                htmlFor="checkboxDefault">
                 I agree to the terms and conditions
               </label>
             </div>
 
             {/* <!--Submit button--> */}
-            <TERipple rippleColor="light" className="w-full">
-              <button
-                type="submit"
-                className="block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]]"
-              > Sign up</button>
-            </TERipple>
+            <button
+              type="submit"
+              className="inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+              data-twe-ripple-init
+              data-twe-ripple-color="light">
+              Sign up
+            </button>
           </form>
           <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-            <p className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200"> OR </p></div>
+            <p className="mx-4 mb-0 text-center text-sm font-semibold dark:text-neutral-200"> OR </p></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
             <TERipple rippleColor="light" className="w-full">

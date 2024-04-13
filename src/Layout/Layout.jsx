@@ -13,7 +13,7 @@ const Layout = ({ children, title }) => {
         <Navbar />
       </header>
 
-      <main className=''>
+      <main className='absolute top-18 left-56'>
         {children}
       </main>
 

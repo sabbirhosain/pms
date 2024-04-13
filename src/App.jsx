@@ -3,6 +3,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
+import "tw-elements"
 
 
 const Login = lazy(() => import("./Pages/Auth/Login.jsx"))
