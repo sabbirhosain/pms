@@ -1,8 +1,10 @@
 import { Helmet } from 'react-helmet'
 import Navbar from '../Components/Header/Navbar'
 import Sidebar from '../Components/Header/Sidebar'
+import { useAuthContext } from '../Context/AuthContexApi'
 
 const Layout = ({ children, title }) => {
+  const { isSidebarOpen } = useAuthContext()
   return (
     <>
       <Helmet>
@@ -13,7 +15,7 @@ const Layout = ({ children, title }) => {
         <Navbar />
       </header>
 
-      <main className='absolute top-20 left-64'>
+      <main className={`mt-20 ${isSidebarOpen ? "ml-0" : "ml-64"}`}>
         {children}
       </main>
 

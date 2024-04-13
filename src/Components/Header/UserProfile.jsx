@@ -9,6 +9,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { deepOrange } from '@mui/material/colors';
 
 const UserProfile = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,7 +25,7 @@ const UserProfile = () => {
 
       <Tooltip title="Account settings">
         <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }} aria-controls={open ? 'account-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined}>
-          <Avatar sx={{ width: 32, height: 32 }}>S</Avatar>
+          <Avatar sx={{ width: 32, height: 32, bgcolor: deepOrange[500] }}>S</Avatar>
         </IconButton>
       </Tooltip>
 

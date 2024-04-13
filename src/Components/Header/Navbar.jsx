@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfile from '../Modal/UserProfile'
+import UserProfile from './UserProfile'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useAuthContext } from '../../Context/AuthContexApi';
 const Navbar = () => {

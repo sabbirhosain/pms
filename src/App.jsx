@@ -9,6 +9,7 @@ import "tw-elements"
 const Login = lazy(() => import("./Pages/Auth/Login.jsx"))
 const Register = lazy(() => import("./Pages/Auth/Register.jsx"))
 const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard.jsx"))
+const UserList = lazy(() => import("./Pages/Users/UserList.jsx"))
 
 const LazyLoaderRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const LazyLoaderRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/" element={<Dashboard />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/user-list" element={<UserList />} />
     </Routes>
   )
 }
