@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
 
@@ -10,13 +9,52 @@ const SendOTP = () => {
 
         <form>
           {/* <!--Email input--> */}
-          <TEInput
-            type="text"
-            label="Your code was send via email"
-            className="mb-6"
-            onChange={(e) => (e.target.value)}
-            required
-          ></TEInput>
+          <div className="grid grid-cols-6 gap-2">
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+            <TEInput
+              type="text"
+              label="--------"
+              className="mb-6"
+              onChange={(e) => (e.target.value)}
+              required
+            ></TEInput>
+          </div>
+
+
 
           {/* <!--Submit button--> */}
           <TERipple rippleColor="light" className="w-full">

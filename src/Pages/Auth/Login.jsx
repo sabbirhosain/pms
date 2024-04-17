@@ -102,7 +102,7 @@ const Login = () => {
               <label className="inline-block pl-[0.15rem] hover:cursor-pointer"
                 htmlFor="exampleCheck25">Remember Password</label>
             </div>
-            <Link to={"/forgot"} className="text-blue-600 text-end">Forgot Password?</Link>
+            <Link to={"/forgot-password"} className="text-blue-600 text-end">Forgot Password?</Link>
           </div>
           {/* <!--Submit button--> */}
           <TERipple rippleColor="light" className="w-full">

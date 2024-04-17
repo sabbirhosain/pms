@@ -10,8 +10,11 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { deepOrange } from '@mui/material/colors';
+import { useAuthContext } from '../../Context/AuthContexApi';
 
 const UserProfile = () => {
+  const { logout } = useAuthContext()
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -20,6 +23,15 @@ const UserProfile = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleCloseAndLogout = () => {
+    handleClose();
+    logout();
+  };
+
+
+
+
   return (
     <React.Fragment>
 
@@ -68,7 +80,7 @@ const UserProfile = () => {
         <MenuItem onClick={handleClose}> <ListItemIcon><Settings fontSize="small" />
         </ListItemIcon>Settings</MenuItem>
 
-        <MenuItem onClick={handleClose}><ListItemIcon><Logout fontSize="small" />
+        <MenuItem onClick={logout}><ListItemIcon><Logout fontSize="small" />
         </ListItemIcon>Logout</MenuItem>
 
       </Menu>

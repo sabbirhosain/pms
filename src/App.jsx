@@ -21,7 +21,7 @@ const LazyLoaderRoutes = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/forgot" element={<ForgotPassword />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/send-otp" element={<SendOTP />} />
       <Route path="/reset-password" element={<NewPassword />} />
 

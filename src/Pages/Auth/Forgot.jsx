@@ -1,20 +1,21 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
+import { useAuthContext } from "../../Context/AuthContexApi";
 
 const Forgot = () => {
+  const { setForgotEmail, forgotPassword } = useAuthContext()
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="block w-full sm:max-w-lg rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
         <h1 className="pb-10 text-2xl font-bold leading-tight text-black text-center font-sans">Forgot Password</h1>
 
-        <form>
+        <form onSubmit={forgotPassword}>
           {/* <!--Email input--> */}
           <TEInput
             type="text"
             label="Enter Your Email"
             className="mb-6"
-            onChange={(e) => (e.target.value)}
+            onChange={(e) => setForgotEmail(e.target.value)}
             required
           ></TEInput>
 

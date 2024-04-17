@@ -99,7 +99,6 @@ const Register = () => {
               <TEInput
                 type="text"
                 label="First Name"
-                placeholder="Sabbir"
                 className="mb-6"
                 onChange={(e) => setFirstName(e.target.value)}
                 required
@@ -108,7 +107,6 @@ const Register = () => {
               <TEInput
                 type="text"
                 label="Last Name"
-                placeholder="Hosain"
                 className="mb-6"
                 onChange={(e) => setLastName(e.target.value)}
                 required
@@ -120,7 +118,6 @@ const Register = () => {
               <TEInput
                 type="text"
                 label="User name"
-                placeholder="sabbir2024"
                 className="mb-6"
                 onChange={(e) => setUserName(e.target.value)}
                 required
@@ -130,7 +127,6 @@ const Register = () => {
               <TEInput
                 type="number"
                 label="Phone Number"
-                placeholder="+880 123 4567 890"
                 className="mb-6"
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -141,7 +137,6 @@ const Register = () => {
             <TEInput
               type="email"
               label="Email Address"
-              placeholder="sabbir@gmail.com"
               className="mb-6"
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -152,7 +147,6 @@ const Register = () => {
               <TEInput
                 type={showPassword ? "text" : "password"}
                 label="Password"
-                placeholder="Use minimum 6 characters"
                 className="mb-6"
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -163,7 +157,6 @@ const Register = () => {
                 <TEInput
                   type={showPassword ? "text" : "password"}
                   label="Confirm Password"
-                  placeholder="Password Confirmation"
                   className="mb-6"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
