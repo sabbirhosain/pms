@@ -3,14 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 const AuthContexProvider = createContext()
 const AuthContexApi = ({ children }) => {
-  const token = localStorage.getItem("accessToken");
-  useEffect(() => { token ? navigate("/dashboard") : navigate("/login") }, []);
   const navigate = useNavigate()
+  const token = localStorage.getItem("accessToken");
+
+  //If the user is already logged in, they cannot go back to the login page
+  useEffect(() => { token ? navigate("/dashboard") : navigate("/login") }, []);
+
   // sidebar toggole
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => { setIsSidebarOpen(!isSidebarOpen) };
 
-
+  // logout
 
 
 

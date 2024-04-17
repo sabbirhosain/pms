@@ -22,7 +22,7 @@ const Sidebar = () => {
   const { isSidebarOpen } = useAuthContext()
   return (
     <>
-      <nav className={`bg-white shadow-lg h-full fixed top-14 left-0 ${isSidebarOpen ? "hidden" : "block"} py-8 font-[sans-serif] overflow-y-auto min-w-[250px]`}>
+      <nav className={`bg-white shadow-lg h-full fixed top-14 left-0 ${isSidebarOpen ? "block sm:hidden" : "hidden sm:block"} py-8 font-[sans-serif] overflow-y-auto min-w-[250px]`}>
         <ul className="mt-0">
           <li>
             <NavLink to={"/"} className="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">

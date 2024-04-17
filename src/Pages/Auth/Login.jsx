@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
 import { FaRegEye, FaRegEyeSlash } from "../../Data/Icon.jsx"
-import {  useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -40,15 +40,15 @@ const Login = () => {
         }
       } else {
         toast.success("Login Success")
+        // =========local store==========
+        localStorage.setItem("accessToken", data.access);
+        localStorage.setItem("refreshToken", data.refresh);
+        // localStorage.setItem("userData", JSON.stringify(data.user));
         navigate("/")
         resetFields()
       }
 
       if (response.ok && remember) {
-        // =========local store==========
-        localStorage.setItem("accessToken", data.access);
-        localStorage.setItem("refreshToken", data.refresh);
-        // localStorage.setItem("userData", JSON.stringify(data.user));
         // =========session store==========
         sessionStorage.setItem("accessToken", data.access);
         sessionStorage.setItem("refreshToken", data.refresh);
