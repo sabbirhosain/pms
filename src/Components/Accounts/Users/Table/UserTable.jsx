@@ -33,6 +33,7 @@ const UserTable = () => {
     },
     {
       name: "Action",
+      width: "130px",
       cell: row => <>
         <Tooltip title="Preview"><IconButton onClick={() => alert(row.id)}>
           <RemoveRedEyeOutlinedIcon color="primary" fontSize="small" /></IconButton></Tooltip>
@@ -41,7 +42,7 @@ const UserTable = () => {
           <DriveFileRenameOutlineOutlinedIcon color="secondary" fontSize="small" /></IconButton></Tooltip>
 
         <Tooltip title="Delete"><IconButton onClick={() => alert(row.id)}>
-          <DeleteForeverRoundedIcon  fontSize="small" sx={{ color: pink[500] }} /></IconButton></Tooltip>
+          <DeleteForeverRoundedIcon fontSize="small" sx={{ color: pink[500] }} /></IconButton></Tooltip>
       </>
     }
   ];

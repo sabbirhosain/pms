@@ -15,7 +15,7 @@ const Layout = ({ children, title }) => {
         <Navbar />
       </header>
 
-      <main className={`mt-20 ${isSidebarOpen ? "ml-0" : "ml-64"}`}>
+      <main className={`mt-20 ${isSidebarOpen ? "ml-0" : "ml-[250px]"}`}>
         {children}
       </main>
 
