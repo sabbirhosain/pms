@@ -3,8 +3,10 @@ import Layout from '../../Layout/Layout'
 
 const Dashboard = () => {
   return (
-    <Layout>Dashboard</Layout>
-  )
+    <Layout>
+      dashboard
+    </Layout>
+  );
 }
 
 export default Dashboard

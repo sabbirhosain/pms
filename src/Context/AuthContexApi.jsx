@@ -7,10 +7,10 @@ const AuthContexApi = ({ children }) => {
   const navigate = useNavigate()
 
   //If the user is already logged in, they cannot go back to the login page
-  // useEffect(() => {
-  //   const token = localStorage.getItem("accessToken");
-  //   token ? navigate("/dashboard") : navigate("/login")
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    token ? navigate("/dashboard") : navigate("/login")
+  }, []);
 
   // sidebar toggole
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,6 +32,8 @@ const AuthContexApi = ({ children }) => {
 
   // forgot password
   const [forgotEmail, setForgotEmail] = useState("")
+  const [message, setMessage] = useState([])
+
   const forgotPassword = async (event) => {
     event.preventDefault()
     try {
@@ -40,8 +42,6 @@ const AuthContexApi = ({ children }) => {
         body: JSON.stringify({ email: forgotEmail }),
       });
       const data = await response.json();
-      console.log(data);
-
       if (!response.ok) {
         toast.error("Email Not Register..!!");
         return
@@ -49,7 +49,7 @@ const AuthContexApi = ({ children }) => {
 
       if (response.ok) {
         toast.success("OTP Send Success..!!");
-        setForgotEmail("")
+        setMessage(data)
         navigate("/send-otp")
       }
 
@@ -59,47 +59,9 @@ const AuthContexApi = ({ children }) => {
 
     }
   }
-
-  // send otp
-  const [otpInput1, setOtpInput1] = useState("")
-  const [otpInput2, setOtpInput2] = useState("")
-  const [otpInput3, setOtpInput3] = useState("")
-  const [otpInput4, setOtpInput4] = useState("")
-  const [otpInput5, setOtpInput5] = useState("")
-  const [otpInput6, setOtpInput6] = useState("")
-  
-  const otpHandelSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      const response = await fetch("https://pms24.pythonanywhere.com/api/forget-password/", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: forgotEmail }),
-      });
-      const data = await response.json();
-      console.log(data);
-
-      if (!response.ok) {
-        toast.error("Email Not Register..!!");
-        return
-      }
-
-      if (response.ok) {
-        toast.success("OTP Send Success..!!");
-        setForgotEmail("")
-        navigate("/send-otp")
-      }
-
-    } catch (error) {
-      console.error(error);
-      toast.success("Somthing went wrong");
-
-    }
-  }
-
-
 
   return (
-    <AuthContexProvider.Provider value={{ isSidebarOpen, toggleSidebar, logout, setForgotEmail, forgotPassword }}>
+    <AuthContexProvider.Provider value={{ isSidebarOpen, toggleSidebar, logout, forgotEmail, setForgotEmail, forgotPassword, message }}>
       {children}
     </AuthContexProvider.Provider>
   )
