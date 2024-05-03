@@ -9,15 +9,20 @@ import { useAccountContextApi } from '../../../../Context/AccountContextApi';
 import { useEffect } from 'react';
 
 const DesignationsTable = () => {
-  const {  designationsList, designationsLoading, DesignationsDataFetch } = useAccountContextApi()
-  useEffect(() => { DesignationsDataFetch() }, [])
+  const { designationsList, designationsLoading, DesignationsDataFetch, designationsCurrentPage, setDesignationsCurrentPage, paginationComponentOptions, customLoadingText, } = useAccountContextApi()
+  useEffect(() => { DesignationsDataFetch() }, [designationsCurrentPage])
 
 
 
   const columns = [
     {
+      name: "SL NO",
+      selector: (row, index) => String((designationsList?.page - 1) * 10 + index + 1)
+    },
+    {
       name: 'Designation',
       selector: row => row.designation ? row.designation : "N/A",
+      width: "900px"
     },
     {
       name: "Action",
@@ -38,9 +43,14 @@ const DesignationsTable = () => {
   return (
     <DataTable
       columns={columns}
-      data={designationsList}
+      data={designationsList?.results}
       pagination
+      paginationServer
       progressPending={designationsLoading}
+      progressComponent={customLoadingText}
+      paginationTotalRows={designationsList?.count}
+      onChangePage={(page) => setDesignationsCurrentPage(page)}
+      paginationComponentOptions={paginationComponentOptions}
     />
   );
 }

@@ -26,7 +26,7 @@ import Categories from './Pages/Categories/Categories.jsx';
 function App() {
   const AUTH_TOKEN = localStorage.getItem('accessToken');
   axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-  axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+  axios.defaults.headers.common['Authorization'] = "Bearer " + AUTH_TOKEN;
   axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   return (
     <>
