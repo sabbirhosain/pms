@@ -4,6 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "../../Data/Icon.jsx"
 import { useEffect, useState } from "react";
 import { Ripple, Input, initTWE, } from "tw-elements";
 import { toast } from "react-toastify";
+import { REGISTER } from "../../API_URL.jsx";
 
 const Register = () => {
   useEffect(() => { initTWE({ Ripple, Input }) }, []);
@@ -53,7 +54,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("https://pms24.pythonanywhere.com/api/register/", {
+      const response = await fetch(`${REGISTER}`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(setUserData),
       });

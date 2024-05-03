@@ -4,11 +4,14 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import AuthContexApi from './Context/AuthContexApi.jsx'
+import AccountContextApi from './Context/AccountContextApi.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthContexApi>
-      <App />
+      <AccountContextApi>
+        <App />
+      </AccountContextApi>
     </AuthContexApi>
   </BrowserRouter>
 

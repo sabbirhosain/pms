@@ -1,16 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FORGET_PASSWORD } from "../API_URL";
 
 const AuthContexProvider = createContext()
 const AuthContexApi = ({ children }) => {
   const navigate = useNavigate()
-
-  //If the user is already logged in, they cannot go back to the login page
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    token ? navigate("/dashboard") : navigate("/login")
-  }, []);
 
   // sidebar toggole
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,7 +32,7 @@ const AuthContexApi = ({ children }) => {
   const forgotPassword = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch("https://pms24.pythonanywhere.com/api/forget-password/", {
+      const response = await fetch(`${FORGET_PASSWORD}`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: forgotEmail }),
       });

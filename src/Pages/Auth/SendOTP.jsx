@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { TEInput, TERipple } from "tw-elements-react";
 import { useAuthContext } from "../../Context/AuthContexApi";
 import NewPassword from "./NewPassword";
+import { SEND_OTP } from "../../API_URL";
 
 const SendOTP = () => {
   const { forgotPassword } = useAuthContext()
@@ -55,7 +56,7 @@ const SendOTP = () => {
   const otpHandelSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch("https://pms24.pythonanywhere.com/api/otp-fill/", {
+      const response = await fetch(`${SEND_OTP}`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otp: otp.join('') }),
       });

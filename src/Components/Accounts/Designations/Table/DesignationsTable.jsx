@@ -8,30 +8,13 @@ import { pink } from '@mui/material/colors';
 import { useAccountContextApi } from '../../../../Context/AccountContextApi';
 import { useEffect } from 'react';
 
-
-const UserTable = () => {
-  const { UserDataFetch, userList, userLoading } = useAccountContextApi()
-  useEffect(() => { UserDataFetch() }, [])
+const DesignationsTable = () => {
+  const {  designationsList, designationsLoading, DesignationsDataFetch } = useAccountContextApi()
+  useEffect(() => { DesignationsDataFetch() }, [])
 
 
 
   const columns = [
-    {
-      name: 'Name',
-      selector: row => row.first_name + ' ' + row.last_name,
-    },
-    {
-      name: 'Email',
-      selector: row => row.email,
-    },
-    {
-      name: 'User Name',
-      selector: row => row.username,
-    },
-    {
-      name: 'Phone Number',
-      selector: row => row.phone ? row.phone : "N/A",
-    },
     {
       name: 'Designation',
       selector: row => row.designation ? row.designation : "N/A",
@@ -55,11 +38,11 @@ const UserTable = () => {
   return (
     <DataTable
       columns={columns}
-      data={userList}
+      data={designationsList}
       pagination
-      progressPending={userLoading}
+      progressPending={designationsLoading}
     />
   );
 }
 
-export default UserTable
+export default DesignationsTable

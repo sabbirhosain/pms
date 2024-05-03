@@ -1,51 +1,51 @@
-import { Suspense, lazy } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import "tw-elements"
+import "./App.css"
+
+
 import PrivateRoute from './PrivateRoute.jsx';
+import axios from 'axios';
+import Login from './Pages/Auth/Login.jsx';
+import Register from './Pages/Auth/Register.jsx';
+import Forgot from './Pages/Auth/Forgot.jsx';
+import SendOTP from './Pages/Auth/SendOTP.jsx';
+import NewPassword from './Pages/Auth/NewPassword.jsx';
+import Dashboard from './Pages/Dashboard/Dashboard.jsx';
+import UserList from './Pages/Users/UserList.jsx';
+import Designations from './Pages/Designations/Designations.jsx';
+import Categories from './Pages/Categories/Categories.jsx';
 
 
-const Login = lazy(() => import("./Pages/Auth/Login.jsx"))
-const Register = lazy(() => import("./Pages/Auth/Register.jsx"))
-const ForgotPassword = lazy(() => import("./Pages/Auth/Forgot.jsx"))
-const SendOTP = lazy(() => import("./Pages/Auth/SendOTP.jsx"))
-const NewPassword = lazy(() => import("./Pages/Auth/NewPassword.jsx"))
-const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard.jsx"))
-const UserList = lazy(() => import("./Pages/Users/UserList.jsx"))
 
-const LazyLoaderRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/send-otp" element={<SendOTP />} />
-      <Route path="/reset-password" element={<NewPassword />} />
-
-      <Route element={<PrivateRoute />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/user-list" element={<UserList />} />
-      </Route>
-    </Routes>
-  )
-}
 
 
 function App() {
+  const AUTH_TOKEN = localStorage.getItem('accessToken');
+  axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+  axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   return (
     <>
       <ToastContainer position="top-right" autoClose={1000} />
-      <Suspense fallback={
-        <div className="h-screen flex items-center justify-center">
-          <ThreeDots visible={true} height="30" width="60" color="#25D366" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass="" />
-        </div>
-      }>
-        <LazyLoaderRoutes />
-      </Suspense>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<Forgot />} />
+        <Route path="/send-otp" element={<SendOTP />} />
+        <Route path="/reset-password" element={<NewPassword />} />
+
+        <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/user-list" element={<UserList />} />
+          <Route path="/designations" element={<Designations />} />
+          <Route path="/categories" element={<Categories />} />
+        </Route>
+      </Routes>
     </>
   )
 }

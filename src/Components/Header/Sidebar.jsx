@@ -41,7 +41,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={""} className="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
+              <NavLink to={"/designations"} className="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
                 <PiSubtitles className="w-[18px] h-[18px] mr-4" />
                 <span>Designation</span>
               </NavLink>
@@ -52,7 +52,7 @@ const Sidebar = () => {
           <h6 className="text-blue-600 text-sm font-bold px-4">Products</h6>
           <ul className="mt-3">
             <li>
-              <NavLink to={""} className="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
+              <NavLink to={"/categories"} className="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
                 <MdOutlineCategory className="w-[18px] h-[18px] mr-4" />
                 <span>Categories</span>
               </NavLink>

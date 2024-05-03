@@ -3,6 +3,7 @@ import { TEInput, TERipple } from "tw-elements-react";
 import { FaRegEye, FaRegEyeSlash } from "../../Data/Icon.jsx"
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { LOGIN } from "../../API_URL.jsx";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ const Login = () => {
   const loginFrom = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch("https://pms24.pythonanywhere.com/api/login/", {
+      const response = await fetch(`${LOGIN}`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: userEmail, password: password }),
       });
@@ -44,7 +45,7 @@ const Login = () => {
         localStorage.setItem("accessToken", data.access);
         localStorage.setItem("refreshToken", data.refresh);
         // localStorage.setItem("userData", JSON.stringify(data.user));
-        navigate("/")
+        navigate("/dashboard")
         resetFields()
       }
 
